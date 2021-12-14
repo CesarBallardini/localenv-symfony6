@@ -28,7 +28,8 @@ Apuntar el navegador del host a:
 
 Dispone de PHP 8.0, Composer, Apache2, MariaDB.
 
-Puede ahora crear su aplicación Symfony, armar el virtualhost de Apache y erla en el navegador de su PC.
+Puede ahora crear su aplicación Symfony, armar el virtualhost de Apache y verla en el navegador de su PC.
+
 
 
 # Apéndice A: requisitos
@@ -53,4 +54,25 @@ Entre paréntesis se indica la versión con la que fueron probados).
   * `vagrant-vbguest` (0.30.0, global)
 
 * Ansible (2.11.5)
+
+# Apéndice B: crear la aplicación Blog Demo 2.0
+
+```bash
+composer create-project symfony/symfony-demo
+cd symfony-demo/
+
+# corre tests:
+./bin/phpunit
+
+# servidor de desarrollo
+symfony serve --no-tls
+```
+
+Ahora puede acceder con el navegador de su pc a la URL de la aplicación: http://localhost:8000/
+
+La demo usa SQLite como base de datos, que reside en `data/`.
+Los logs de la aplicación se encuentran en `var/log/`, tanto para los ambientes `dev` como para `test`.
+La configuración se hace mediante archivos de ambiente: `.env` para el entorno `dev` y `.env.test` para correr los tests.
+
+
 

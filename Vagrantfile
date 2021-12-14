@@ -54,6 +54,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     srv.vm.box = "debian/bullseye64"
 
     srv.vm.network "private_network", ip: HOST_IP_ADDRESS
+    srv.vm.network "forwarded_port", guest: 8000, host: 8000
+
     srv.vm.box_check_update = false
     srv.ssh.forward_agent = true
     srv.ssh.forward_x11 = true
@@ -121,6 +123,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       ansible.verbose = "vv"
       ansible.become= false
     end
+
+    config.vm.provision "instala_symfony", type: :shell, path: "provision/instala-symfony.sh", privileged: false
 
     config.vm.provision "corre_goss", type: :ansible do |ansible|
       ansible.playbook = "provision/ansible/goss-tests.yml"
