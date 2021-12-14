@@ -1,0 +1,34 @@
+package:
+  libapache2-mod-php8.0:
+    installed: true
+    versions:
+    - 8.0.13-1+0~20211122.27+debian11~1.gbp1675bc
+  php8.0:
+    installed: true
+    versions:
+    - 8.0.13-1+0~20211122.27+debian11~1.gbp1675bc
+  php8.0-mbstring:
+    installed: true
+    versions:
+    - 8.0.13-1+0~20211122.27+debian11~1.gbp1675bc
+  php8.0-mysql:
+    installed: true
+    versions:
+    - 8.0.13-1+0~20211122.27+debian11~1.gbp1675bc
+  php8.0-tokenizer:
+    installed: false
+  php8.0-xml:
+    installed: true
+    versions:
+    - 8.0.13-1+0~20211122.27+debian11~1.gbp1675bc
+  php8.0-zip:
+    installed: true
+    versions:
+    - 8.0.13-1+0~20211122.27+debian11~1.gbp1675bc
+command:
+  /usr/local/bin/composer --version:
+    exit-status: 0
+    stdout:
+    - Composer version 2.1.14
+    stderr: []
+    timeout: 10000

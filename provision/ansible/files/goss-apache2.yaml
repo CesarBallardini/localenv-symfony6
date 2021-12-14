@@ -1,0 +1,50 @@
+package:
+  apache2:
+    installed: true
+    versions:
+    - 2.4.51-1~deb11u1
+  apache2-utils:
+    installed: true
+    versions:
+    - 2.4.51-1~deb11u1
+port:
+  ##
+  # FIXME: aparecen como no escuchando
+  #
+  #tcp:80:
+  #  listening: true
+  #  ip: 
+  #  - 127.0.0.1
+  #  - 192.168.56.10
+  #  skip: false
+  #tcp:443:
+  #  listening: true
+  #  ip: 
+  #  - 127.0.0.1
+  #  - 192.168.33.10
+  #  skip: false
+  tcp:3306:
+    listening: true
+    ip:
+    - 127.0.0.1
+    skip: false
+service:
+  apache2:
+    enabled: true
+    running: true
+process:
+  apache2:
+    running: true
+user:
+  www-data:
+    exists: true
+    uid: 33
+    gid: 33
+    groups:
+    - www-data
+    home: /var/www
+    shell: /usr/sbin/nologin
+group:
+  www-data:
+    exists: true
+    gid: 33

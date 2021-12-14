@@ -1,0 +1,38 @@
+package:
+  mariadb-client:
+    installed: true
+    versions:
+    - 1:10.5.12-0+deb11u1
+  mariadb-server:
+    installed: true
+    versions:
+    - 1:10.5.12-0+deb11u1
+port:
+  tcp:3306:
+    listening: true
+    ip:
+    - 127.0.0.1
+    skip: false
+service:
+  mysql:
+    enabled: true
+    running: true
+  mysqld:
+    enabled: true
+    running: true
+user:
+  mysql:
+    exists: true
+    uid: 107
+    gid: 114
+    groups:
+    - mysql
+    home: /nonexistent
+    shell: /bin/false
+group:
+  mysql:
+    exists: true
+    gid: 114
+process:
+  mariadbd:
+    running: true

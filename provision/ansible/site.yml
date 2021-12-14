@@ -1,0 +1,73 @@
+---
+- name: instala entorno Symfony
+  hosts: all
+  become: true
+
+  vars:
+    mysql_root_username: root
+    mysql_root_password: "root123"
+
+  pre_tasks:
+
+    - name: install snakeoil certs
+      apt:
+        name:
+         - ssl-cert
+
+    #- name: parametros del deploy
+    #  include_vars:
+    #    file: deploy-vars.yaml
+
+  roles:
+
+    - role: geerlingguy.apache
+
+    - role: geerlingguy.php-versions
+      vars:
+        php_version: '8.0'
+
+    - role: geerlingguy.php
+      vars:
+        php_webserver_daemon: "apache2"
+        php_packages_extra:
+          - libapache2-mod-php8.0
+          - php8.0-mbstring
+          - php8.0-tokenizer
+          - php8.0-xml
+          - php8.0-zip
+          - unzip
+
+    - role: geerlingguy.composer
+
+    - role: geerlingguy.php-mysql
+
+    - role: geerlingguy.mysql
+      vars:
+         mysql_root_home: /root
+         mysql_enabled_on_startup: true
+         mysql_bind_address: '127.0.0.1'
+         mysql_packages:
+           - mariadb-client
+           - mariadb-server
+
+    - role: geerlingguy.phpmyadmin
+      vars:
+        phpmyadmin_mysql_user: root
+        phpmyadmin_mysql_password: "{{ mysql_root_password }}"
+
+  tasks:
+
+    - name: instala programas auxiliares utiles
+      ansible.builtin.package:
+        name:
+          - acl
+          - jq
+          - mc
+          - moreutils
+          - screen
+          - vim
+        state: present
+
+    - name: instala goss para los tests
+      include_tasks: devops_goss.yml
+

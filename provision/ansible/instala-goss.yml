@@ -1,0 +1,11 @@
+---
+- name: instala Goss
+  hosts: all
+  become: true
+
+  tasks:
+
+    - name: instala goss para los tests
+      include_tasks: devops_goss.yml
+
+

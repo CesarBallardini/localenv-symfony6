@@ -1,0 +1,29 @@
+package:
+  acl:
+    installed: true
+    versions:
+    - 2.2.53-10
+  jq:
+    installed: true
+    versions:
+    - 1.6-2.1
+  mc:
+    installed: true
+    versions:
+    - 3:4.8.26-1.1
+  moreutils:
+    installed: true
+    versions:
+    - 0.65-1
+  screen:
+    installed: true
+    versions:
+    - 4.8.0-6
+  unzip:
+    installed: true
+    versions:
+    - 6.0-26
+  vim:
+    installed: true
+    versions:
+    - 2:8.2.2434-3
