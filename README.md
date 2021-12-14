@@ -13,8 +13,13 @@ cd localenv-symfony6/
 mkdir provision/ansible/roles/ tmp/
 ansible-galaxy install -r requirements.yml --roles-path=provision/ansible/roles/
 
+##
 # levantar la VM
-time vagrant up
+
+cp Vagrantfile.virtualbox Vagrantfile ; time vagrant up      # usa Virtualbox como provider
+
+# o bien
+cp Vagrantfile.docker Vagrantfile ;  time vagrant up  # usa Docker como provider, ej. en una Apple MAC con procesador M1
 
 ```
 
