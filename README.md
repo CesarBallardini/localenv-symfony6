@@ -6,7 +6,7 @@ Entorno Symfony 6.x con PHP 8.0 y MariaDB 10.3 sobre Ubuntu 20.04.
 ## Crear la VM:
 
 ```bash
-git clone https://github.com/upcnsfe/localenv-symfony6
+git clone https://github.com/CesarBallardini/localenv-symfony6
 cd localenv-symfony6/
 
 # Instalar módulos requeridos para los roles Ansible
